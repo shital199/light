@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>
+        1_Light_splash screen
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="1_light_splash screen.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1 class="place">1_Light_splash screen</h1>
+
+                <rect x="50" y="20" width="287.07px" height="191.98px" left="62.75px" top="297.79px"
+                    background="#4448AE" />
+
+
+                <div class="erb-image-wrapper">
+
+                    <img src="Mask group.png" alt="Parkingrid"></img>
+                    <h1 class="box">Parkingrid</h1>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form validation in HTML & CSS | CodingNepal</title>
+  <link rel="stylesheet" type="text/css" href="1_light_splash screen.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>Login Form</header>
+    <form action="#">
+      <div class="field email">
+        <div class="input-area">
+          <input type="text" placeholder="Email Address">
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Please enter a valid email</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+          <input type="password" placeholder="Password">
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Please enter a valid password</div>
+      </div>
+      <div class="pass-txt"><a href="#">Forgot password?</a></div>
+      <input type="submit" value="Login">
+    </form>
+    <div class="sign-txt">Not yet member? <a href="#">Signup now</a></div>
+  </div>
+
+  <script>const form = document.querySelector("form");
+    eField = form.querySelector(".email"),
+    eInput = eField.querySelector("input"),
+    pField = form.querySelector(".password"),
+    pInput = pField.querySelector("input");
+    
+    form.onsubmit = (e)=>{
+      e.preventDefault();
+      (eInput.value == "") ? eField.classList.add("shake", "error") : checkEmail();
+      (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
+    
+      setTimeout(()=>{
+        eField.classList.remove("shake");
+        pField.classList.remove("shake");
+      }, 500);
+    
+      eInput.onkeyup = ()=>{checkEmail();} 
+      pInput.onkeyup = ()=>{checkPass();} 
+    
+      function checkEmail(){ 
+        let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+        if(!eInput.value.match(pattern)){ 
+          eField.classList.add("error");
+          eField.classList.remove("valid");
+          let errorTxt = eField.querySelector(".error-txt");
+          (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address" : errorTxt.innerText = "Please enter a valid email";
+        }else{ 
+          eField.classList.remove("error");
+          eField.classList.add("valid");
+        }
+      }
+    
+      function checkPass(){
+        if(pInput.value == ""){ 
+          pField.classList.add("error");
+          pField.classList.remove("valid");
+        }else{
+          pField.classList.remove("error");
+          pField.classList.add("valid");
+        }
+      }
+    
+      if(!eField.classList.contains("error") && !pField.classList.contains("error")){
+        window.location.href = form.getAttribute("action");
+      }
+    }</script>
+
+</body>
+</html>
